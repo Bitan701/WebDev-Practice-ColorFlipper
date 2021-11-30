@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper Barebone</title>
+
+    <!--CSS Styling-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montagu+Slab&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montagu Slab', serif;
+            text-align: center;
+        }
+
+        main {
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .btn {
+            background: transparent;
+            letter-spacing: 0.3rem;
+            display: inline-block;
+            font-weight: 900;
+            cursor: pointer;
+            border: 2px solid;
+            padding: .6rem;
+            transition: all .3s linear;
+        }
+
+        .btn:hover{
+            color: white;
+            background: black;
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <!--HTML-->
+    <main>
+        <div class="center">
+            <h2>Color Flipper Barebone: <br> <span class="color">White</span></h2>
+            <button class="btn" id="btn">FLIP COLOR</button>
+            <button class="btn" id="btn1">FLIP HEX</button>
+        </div>
+    </main>
+    
+    <!--JavaScript Code-->
+    <script>
+        //FLIP COLOR
+        const colors = ["Red", "Green", "Blue", "Orange", "Yellow", 
+                        "Cyan", "Magenta", "Purple"];
+        btn.addEventListener("click", function () {
+            const randomColor = Math.floor(Math.random() * colors.length);
+            document.body.style.backgroundColor = colors[randomColor];
+            document.querySelector(".color").textContent = colors[randomColor];
+        });
+
+        //FLIP HEX
+        const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+        btn1.addEventListener("click", function () {
+            hex_num = "#";
+            for(let i=0; i<6; i++){
+                hex_num+=hex[Math.floor(Math.random()*hex.length)];
+            }
+            document.body.style.backgroundColor = hex_num;
+            document.querySelector(".color").textContent = hex_num;
+        });
+    </script>
+</body>
+</html>
